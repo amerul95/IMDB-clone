@@ -6,7 +6,7 @@ const API_KEY = process.env.API_KEY;
 export default async function Page({ searchParams }) {
 
 
-  try {
+  
     const genre = searchParams.genre || 'fetchTrending';
     const res = await fetch(
       `https://api.themoviedb.org/3${
@@ -15,14 +15,12 @@ export default async function Page({ searchParams }) {
     );
     const data = await res.json();
     const results = data.results;
-    console.log(data); // For debugging purposes
-  } catch (error) {
-    console.error(error.message);
-  }
+    // console.log(data); // For debugging purposes
+
 
   return (
     <div>
-      {/* <Result results={results} /> */}
+      <Result results={results} />
     </div>
   );
 }
